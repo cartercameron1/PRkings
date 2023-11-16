@@ -2,7 +2,7 @@
 	"id": 69,
 	"name": "A.S Muncher",
 	"gymID": 420,
-	"DOB": 70,
+	"age": 70,
 	"sex": "male",
 	"height": 80,
 	"lifts": {
