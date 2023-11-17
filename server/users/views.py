@@ -37,9 +37,9 @@ def external_query_database(requst):
 	
 	collection = db.users
 
-	db_dict = {'db': []}
+	db_dict = {}
 	for item in collection.find({}, { '_id': 0}):
-		db_dict['db'].append(item)
+		db_dict[item['id']] = item
 
 	return JsonResponse(db_dict)
 
