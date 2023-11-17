@@ -1,14 +1,15 @@
 import './App.css'
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'
 import { Home } from './Pages/Home'
+import { Profile } from './Pages/Profile'
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route/>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route/>
           <Route/>
         </Routes>
