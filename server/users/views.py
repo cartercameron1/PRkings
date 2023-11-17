@@ -26,6 +26,24 @@ async def async_mongo_pull_user(id):
 
 	return document
 
+def external_query_database(requst):
+	load_dotenv()
+
+	uri = os.getenv('connection_string')
+	
+	client = pymongo.MongoClient(uri, server_api=ServerApi('1'))
+	
+	db = client.prkings
+	
+	collection = db.users
+
+	db_dict = {'db': []}
+	for item in collection.find({}, { '_id': 0}):
+		db_dict['db'].append(item)
+
+	return JsonResponse(db_dict)
+
+	 
 def query_database():
 	load_dotenv()
 
@@ -83,4 +101,4 @@ def leaderboard(request):
 
 
 if __name__ == '__main__':
-	leaderboard()
+	print(query_database())
