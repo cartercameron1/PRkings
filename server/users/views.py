@@ -92,8 +92,15 @@ def leaderboard(request):
 	for user in db:
 		names.append(user['name'])
 		lifts.append(user['lifts'][requested_lift])
+
+
+	combined_lists = list(zip(lifts, names))
+
+	sorted_lists = sorted(combined_lists, key=lambda x: x[0])
+
+	lifts, names = zip(*sorted_lists)
 	
-	return JsonResponse({'leaderboard': [names,lifts]})
+	return JsonResponse({'leaderboard': [names[::-1],lifts[::-1]]})
 
 
 
@@ -101,4 +108,4 @@ def leaderboard(request):
 
 
 if __name__ == '__main__':
-	print(query_database())
+	leaderboard()
