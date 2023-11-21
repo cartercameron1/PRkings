@@ -100,7 +100,10 @@ def leaderboard(request):
 
 	lifts, names = zip(*sorted_lists)
 	
-	return JsonResponse({'leaderboard': [names[::-1],lifts[::-1]]})
+	#original leaderboard structure
+	# return JsonResponse({'leaderboard': [names[::-1],lifts[::-1]]})
+	return JsonResponse({'leaderboard': sorted_lists[::-1]})
+
 
 
 
